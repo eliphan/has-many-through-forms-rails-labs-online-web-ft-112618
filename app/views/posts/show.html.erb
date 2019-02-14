@@ -11,14 +11,16 @@ Comments:
   <% end %>
   
 <%= form_for @post do |f| %>
-<%= f.label 'Username' %>
-<%= f.text_field :user_username, list: 'user_autocomplete' %>
-  <datalist id="users_autocomplete">
+<%= f.label 'Username:' %>
+<%= f.text_field :user_username, list: 'comment_user_id_autocomplete' %>
+  <datalist id="comment_user_ids_autocomplete">
     <% User.all.each do |user| %>
       <option value="<%= user.username %>">
     <% end %>
   </datalist>
-  Comments:
-  <input type='text' name='post[comment_contents][]' id='post_comments_1'>
+  
+  Comment:
+  <input type='text' name='post[comment_contents][]' id='comment_content'>
 <%= f.submit %>
 <% end %>  
+
