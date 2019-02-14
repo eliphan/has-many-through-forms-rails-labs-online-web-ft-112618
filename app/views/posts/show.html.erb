@@ -11,8 +11,9 @@ Comments:
   <% end %>
   
 <%= form_for @post do |f| %>
+<%= f.label 'Username' %>
 <%= f.text_field :user_username %>
-<%= f.collection_select :user_id, User.all, :id, :username %>
-  <input name='post[comment_contents][]'id='post_comment_1'>
+<%= f.collection_select :user_ids, User.all, :id, :username %>
+  <input type='text' name='post[comment_contents][]'id='post_comments_1'>
 <%= f.submit %>
 <% end %>  
