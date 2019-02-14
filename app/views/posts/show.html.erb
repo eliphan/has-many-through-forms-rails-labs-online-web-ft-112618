@@ -1,7 +1,18 @@
-<h1><%= @post.title %></h1>
+<h2><%= @post.title %></h2>
 <p><%= @post.content %></p>
 <p><% @post.categories.each do |c| %>
    <%= c.name %> 
    <% end %>
 </p>
-<p>
+Comments:
+  <% @post.comments.each do |comment| %>
+    <%= link_to comment.user.username, user_path(comment.user) %>
+    <%= comment.content %>
+  <% end %>
+  
+<%= form_for @post do |f| %>
+<%= f.text_field :user_username %>
+<%= f.collection_select :user_id, User.all, :id, :username %>
+  <input name='post[comment_contents][]'id='post_comment_1'>
+<%= f.submit %>
+<% end %>  
