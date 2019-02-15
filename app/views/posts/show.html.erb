@@ -4,16 +4,15 @@
    <%= c.name %> 
    <% end %>
 </p>
-
 Comments:
   <% @post.comments.each do |comment| %>
     <%= link_to comment.user.username, user_path(comment.user) %>
     <%= comment.content %>
   <% end %>
   
-<%= form_for @comment do |f| %>
+<%= form_for @post do |f| %>
 <%= f.label 'Username:' %>
-<%= f.text_field :comment_user, list: 'comment_user_id_autocomplete' %>
+<%= f.text_field :user_username, list: 'comment_user_id_autocomplete' %>
   <datalist id="comment_user_ids_autocomplete">
     <% User.all.each do |user| %>
       <option value="<%= user.username %>">
