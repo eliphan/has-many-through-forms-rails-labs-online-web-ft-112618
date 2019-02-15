@@ -13,7 +13,7 @@ Comments:
 <%= form_for @comment do |f| %>
 <%= f.label 'Username:' %>
 <%= f.text_field :user_username, list: 'comment_user_id_autocomplete' %>
-  <datalist id="comment_user_ids_autocomplete">
+  <datalist id="comment_user_id_autocomplete">
     <% User.all.each do |user| %>
       <option value="<%= user.username %>">
     <% end %>
