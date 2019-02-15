@@ -25,13 +25,13 @@ class Post < ActiveRecord::Base
     self.comments.map(&:content)
   end
   
-  # def user_username
-  #   self.try(:user).try(:username)
-  # end
+  def user_username
+    self.try(:user).try(:username)
+  end
   
-  # def user_username=(username)
-  #   user = User.find_or_create_by(username: username)
-  #   self.user = user
-  # end
+  def user_username=(username)
+    user = User.find_or_create_by(username: username)
+    self.user = user
+  end
 
 end
