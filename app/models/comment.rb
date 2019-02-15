@@ -8,4 +8,8 @@ class Comment < ActiveRecord::Base
     self.users << user 
     end
   end
+  
+  
+  
+  
 end
