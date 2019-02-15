@@ -10,9 +10,9 @@ Comments:
     <%= comment.content %>
   <% end %>
   
-<%= form_for @post do |f| %>
+<%= form_for @comment do |f| %>
 <%= f.label 'Username:' %>
-<%= f.text_field :user_username, list: 'comment_user_id_autocomplete' %>
+<%= f.text_field :comment_user, list: 'comment_user_id_autocomplete' %>
   <datalist id="comment_user_ids_autocomplete">
     <% User.all.each do |user| %>
       <option value="<%= user.username %>">
