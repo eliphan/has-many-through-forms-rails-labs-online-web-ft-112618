@@ -6,19 +6,17 @@
 </p>
 Comments:
   <% @post.comments.each do |comment| %>
-    <%= link_to comment.user.username, user_path(comment.user) %>
+    <%= link_to comment.user.username, user_path(comment.user) if comment.user %>
     <%= comment.content %>
   <% end %>
   
-<%= form_for @post do |f| %>
+<%= form_for @comment do |f| %>
 <%= f.label 'Username:' %>
-<%= f.text_field :user_username, list: 'comment_user_id_autocomplete' %>
-  <datalist id="comment_user_ids_autocomplete">
-    <% User.all.each do |user| %>
-      <option value="<%= user.username %>">
+<%= f.collection_select :user_username, User.all, :id, :username %>
+<%= f.fields_for :user,
+    @comment.build_user do  %>
     <% end %>
-  </datalist>
-  
+
   Comment:
   <input type='text' name='post[comment_contents][]' id='comment_content'>
 <%= f.submit %>
