@@ -14,9 +14,10 @@ Comments:
 <%= f.label 'Username:' %>
 <%= f.collection_select :user_username, User.all, :id, :username %>
 <%= f.fields_for :user,
-    @comment.build_user do |users_field| %>
-    <%= users_field.text_field :username %>
-
+    @comment.build_user do  %>
+    <% end %>
+<%= f.submit %>
+<% end %>
 
 
   Comment:
