@@ -9,15 +9,13 @@ class Comment < ActiveRecord::Base
     end
   end
   
- def user_username
-   self.try(:user).try(:username)
- end
+  def user_username
+    self.try(:user).try(:username)
+  end
   
- def user_username=(username)
-   user = User.find_or_create_by(username: username)
-   self.user = user
- end
+  def user_username=(username)
+    user = User.find_or_create_by(username: username)
+    self.user = user
+  end
 
-  
-  
 end
