@@ -16,9 +16,6 @@ Comments:
 <%= f.fields_for :user,
     @comment.build_user do  %>
     <% end %>
-<%= f.submit %>
-<% end %>
-
 
   Comment:
   <input type='text' name='post[comment_contents][]' id='comment_content'>
