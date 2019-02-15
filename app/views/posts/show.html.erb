@@ -12,13 +12,10 @@ Comments:
   
 <%= form_for @comment do |f| %>
 <%= f.label 'Username:' %>
-<%= f.text_field :user_username, list: 'comment_user_id_autocomplete' %>
-  <datalist id="comment_user_id_autocomplete">
-    <% User.all.each do |user| %>
-      <option value="<%= user.username %>">
-    <% end %>
-  </datalist>
-  
+<%= f.collection_select :user_username, User.all, :id, :username %>
+
+
+
   Comment:
   <input type='text' name='post[comment_contents][]' id='comment_content'>
 <%= f.submit %>
