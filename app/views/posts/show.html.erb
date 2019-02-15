@@ -13,6 +13,8 @@ Comments:
 <%= form_for @comment do |f| %>
 <%= f.label 'Username:' %>
 <%= f.collection_select :user_username, User.all, :id, :username %>
+<%= f.fields_for :users,
+    comment.user.build do |users_field| %>
 
 
 
